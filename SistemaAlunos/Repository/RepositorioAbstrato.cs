@@ -15,7 +15,7 @@ namespace SistemaAlunos.Repository
             conn = ConexaoComBD.GetConexao();
         }
 
-        public abstract void Add(object T);
+        public abstract void Add(Aluno aluno);
         public abstract void Update(Aluno aluno);
         public abstract void Remove(int matricula);
         public abstract IEnumerable<Aluno> Get(int matricula);
