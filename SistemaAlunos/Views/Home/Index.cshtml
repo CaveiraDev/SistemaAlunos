@@ -1,8 +1,65 @@
-﻿@{
+﻿@model Aluno
+@{
     ViewData["Title"] = "Home Page";
+    
 }
 
 <div class="text-center" >
-    <h1 class="display-8">Tabela De Alunos</h1>
+    <div>
+        <div>
+            <h1 class="display-8">Tabela De Alunos</h1>
+        </div>
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Matricula</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">Data de nascimento</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Opções</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>mm</td>
+                    <td>mm</td>
+                    <td>
+                        <a><button>Editar</button></a>
+                        <a><button>Excluir</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>mm</td>
+                    <td>mm</td>
+                    <td>
+                        <a><button>Editar</button></a>
+                        <a><button>Excluir</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>mm</td>
+                    <td>mm</td>
+                    <td>
+                        <a><button>Editar</button></a>
+                        <a><button>Excluir</button></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
     
 </div>
