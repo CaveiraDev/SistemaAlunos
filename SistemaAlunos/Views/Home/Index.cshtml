@@ -1,7 +1,7 @@
-﻿@model Aluno
+﻿@model List<Aluno>
 @{
     ViewData["Title"] = "Home Page";
-    
+
 }
 
 <div class="text-center" >
@@ -11,54 +11,42 @@
         </div>
 
 
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Matricula</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Sexo</th>
-                    <th scope="col">Data de nascimento</th>
-                    <th scope="col">CPF</th>
-                    <th scope="col">Opções</th>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Matricula</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Sexo</th>
+                        <th scope="col">Data de nascimento</th>
+                        <th scope="col">Opções</th>
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>mm</td>
-                    <td>mm</td>
-                    <td>
-                        <a><button>Editar</button></a>
-                        <a><button>Excluir</button></a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>mm</td>
-                    <td>mm</td>
-                    <td>
-                        <a><button>Editar</button></a>
-                        <a><button>Excluir</button></a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>mm</td>
-                    <td>mm</td>
-                    <td>
-                        <a><button>Editar</button></a>
-                        <a><button>Excluir</button></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+
+                        foreach (Aluno aluno in Model)
+                        {
+                            <tr>
+                            <th scope="row">@aluno.Matricula</th>
+                                <td>@aluno.Nome</td>
+                                <td>@aluno.CPF</td>
+                                <td>@aluno.</td>
+                                <td>mm</td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                    <a type="button" class="btn btn-info opacity-75" role="button" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="Editar">Editar</a>
+                                    <a type="button" class="btn btn-danger opacity-20" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+                   }
+                </tbody>
+            </table>
     </div>
     
     
