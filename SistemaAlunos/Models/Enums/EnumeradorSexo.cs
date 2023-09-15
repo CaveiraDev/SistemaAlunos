@@ -2,8 +2,8 @@
 {
     public enum EnumeradorSexo
     {
-        Masculino = 0,
-        Feminino = 1
+        Masculino = 1,
+        Feminino = 0
 
     }
 }

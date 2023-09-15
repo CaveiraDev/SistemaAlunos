@@ -9,7 +9,7 @@ namespace SistemaAlunos.Repository
     {
 
 
-
+        
 
         private readonly FbConnection conn;
         public RepositorioAluno()
@@ -21,16 +21,16 @@ namespace SistemaAlunos.Repository
         {
 
 
-            string query = "INSERT INTO ALUNO( MATRICULA, NOME, CPF, Nascimento, Sexo) VALUES (@matricula, @nome, @cpf, @nascimento, @sexo);";
+            string query = "INSERT INTO ALUNOS( MATRICULA, NOME, CPF, NASCIMENTO, SEXO) VALUES (@ALU_MATRICULA, @ALU_NOME, @ALU_CPF, @ALU_NASCIMENTO, @ALU_SEXO);";
 
             try
             {
                 using FbCommand cmd = new FbCommand(query, conn);
-                cmd.Parameters.AddWithValue("@matricula", aluno.Matricula);
-                cmd.Parameters.AddWithValue("@nome", aluno.Nome);
-                cmd.Parameters.AddWithValue("@cpf", aluno.CPF);
-                cmd.Parameters.AddWithValue("@nascimento", aluno.Nascimento);
-                cmd.Parameters.AddWithValue("@sexo", aluno.Sexo);
+                cmd.Parameters.AddWithValue("@ALU_MATRICULA", aluno.Matricula);
+                cmd.Parameters.AddWithValue("@ALU_NOME", aluno.Nome);
+                cmd.Parameters.AddWithValue("@ALU_CPF", aluno.CPF);
+                cmd.Parameters.AddWithValue("@ALU_NASCIMENTO", aluno.Nascimento);
+                cmd.Parameters.AddWithValue("@ALU_SEXO", aluno.Sexo);
 
                 cmd.ExecuteNonQuery();
                 Console.WriteLine($"Aluno(a) {aluno.Nome} Adicionado com sucesso!");
@@ -47,16 +47,16 @@ namespace SistemaAlunos.Repository
         }
         public override void Update(Aluno aluno)
         {
-            string query = "UPDATE Aluno SET NOME = @nome, EMAIl= @email, TELEFONE = @telefone, Serie = @serie WHERE MATRICULA =  @matricula;";
+            string query = "UPDATE ALUNOS SET ALU_NOME = @ALU_NOME, ALU_CPF= @ALU_CPF, ALU_NASCIMENTO = @ALU_NASCIMENTO, ALU_SEXO = @ALU_SEXO WHERE ALU_MATRICULA =  @ALU_MATRICULA;";
 
             try
             {
                 using FbCommand cmd = new FbCommand(query, conn);
-                cmd.Parameters.AddWithValue("@matricula", aluno.Matricula);
-                cmd.Parameters.AddWithValue("@nome", aluno.Nome);
-                cmd.Parameters.AddWithValue("@cpf", aluno.CPF);
-                cmd.Parameters.AddWithValue("@nascimento", aluno.Nascimento);
-                cmd.Parameters.AddWithValue("@sexo", aluno.Sexo);
+                cmd.Parameters.AddWithValue("@ALU_MATRICULA", aluno.Matricula);
+                cmd.Parameters.AddWithValue("@ALU_NOME", aluno.Nome);
+                cmd.Parameters.AddWithValue("@ALU_CPF", aluno.CPF);
+                cmd.Parameters.AddWithValue("@ALU_NASCIMENTO", aluno.Nascimento);
+                cmd.Parameters.AddWithValue("ALU_SEXO", aluno.Sexo);
 
                 cmd.ExecuteNonQuery();
                 Console.WriteLine($"Dados do Aluno(a) {aluno.Nome} Atualizado com sucesso!");
@@ -71,12 +71,12 @@ namespace SistemaAlunos.Repository
 
         public override void Remove(int matricula)
         {
-            string query = "DELETE FROM ALUNO WHERE MATRICULA = @matricula;";
+            string query = "DELETE FROM ALUNOS WHERE ALU_MATRICULA = @ALU_MATRICULA ;";
 
             try
             {
                 using FbCommand cmd = new FbCommand(query, conn);
-                cmd.Parameters.AddWithValue("@matricula", matricula);
+                cmd.Parameters.AddWithValue("ALU_MATRICULA ", matricula);
 
                 cmd.ExecuteNonQuery();
                 Console.WriteLine("Aluno Removido com Sucesso!");
@@ -92,13 +92,13 @@ namespace SistemaAlunos.Repository
         public override IEnumerable<Aluno> Get(int matricula)
         {
             List<Aluno> listaDeAlunos = new List<Aluno>();
-            string query = "SELECT * FROM ALUNO WHERE MATRICULA = @matricula;";
+            string query = "SELECT * FROM ALUNOS WHERE ALU_MATRICULA = @ALU_MATRICULA ;";
 
             try
             {
                 using (FbCommand cmd = new FbCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@matricula", matricula);
+                    cmd.Parameters.AddWithValue("@ALU_MATRICULA ", matricula);
 
                     using (FbDataReader reader = cmd.ExecuteReader())
                     {
@@ -108,10 +108,10 @@ namespace SistemaAlunos.Repository
                             {
 
                                 Matricula = Convert.ToInt32(reader["MATRICULA"]),
-                                Nome = reader["NOME"].ToString(),
-                                CPF = reader["EMAIL"].ToString(),
-                                Nascimento = DateTime.Parse(reader["NASCIMENTO"].ToString()),
-                                Sexo = (EnumeradorSexo)Enum.Parse(typeof(EnumeradorSexo), reader["SEXO"].ToString())
+                                Nome = reader["ALU_NOME"].ToString(),
+                                CPF = reader["ALU_CPF"].ToString(),
+                                Nascimento = DateTime.Parse(reader["ALU_NASCIMENTO"].ToString()),
+                                Sexo = (EnumeradorSexo)Enum.Parse(typeof(EnumeradorSexo), reader["ALU.SEXO"].ToString())
                                 // Preencha aqui as outras propriedades do objeto Aluno, se houver
                             };
                             listaDeAlunos.Add(aluno);
@@ -130,7 +130,7 @@ namespace SistemaAlunos.Repository
         public override IEnumerable<Aluno> GetAll()
         {
             List<Aluno> listaDeAlunos = new List<Aluno>();
-            string query = "SELECT * FROM ALUNO ORDER BY MATRICULA ASC;";
+            string query = "SELECT * FROM ALUNOs ORDER BY ALU_MATRICULA ASC;";
 
             try
             {
@@ -145,11 +145,11 @@ namespace SistemaAlunos.Repository
                             Aluno aluno = new Aluno
                             {
 
-                                Matricula = Convert.ToInt32(reader["MATRICULA"]),
-                                Nome = reader["NOME"].ToString(),
-                                CPF = reader["EMAIL"].ToString(),
-                                Nascimento = DateTime.Parse(reader["NASCIMENTO"].ToString()),
-                                Sexo = (EnumeradorSexo)Enum.Parse(typeof(EnumeradorSexo), reader["SEXO"].ToString())                  // Preencha aqui as outras propriedades do objeto Aluno, se houver
+                                Matricula = Convert.ToInt32(reader["ALU_MATRICULA"]),
+                                Nome = reader["ALU_NOME"].ToString(),
+                                CPF = reader["ALU_CPF"].ToString(),
+                                Nascimento = DateTime.Parse(reader["ALU_NASCIMENTO"].ToString()),
+                                Sexo = (EnumeradorSexo)Enum.Parse(typeof(EnumeradorSexo), reader["ALU_SEXO"].ToString())       
                             };
                             listaDeAlunos.Add(aluno);
                         }

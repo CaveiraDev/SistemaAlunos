@@ -1,4 +1,7 @@
-﻿@model List<Aluno>
+﻿﻿
+@model IEnumerable<SistemaAlunos.Models.Domain.Aluno>
+@using SistemaAlunos.Models.Domain;
+
 @{
     ViewData["Title"] = "Home Page";
 
@@ -37,8 +40,8 @@
                                     <td>@aluno.Nascimento</td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a type="button" class="btn btn-info opacity-75" role="button" asp-route-id="@aluno.Id" asp-controller="Contato" asp-action="Editar">Editar</a>
-                                        <a type="button" class="btn btn-danger opacity-20" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
+                                        <a type="button" class="btn btn-info opacity-75" role="button" asp-route-id="@aluno.Matricula" asp-controller="AlunoController" asp-action="Editar">Editar</a>
+                                        <a type="button" class="btn btn-danger opacity-20" asp-route-id="@aluno.Matricula" asp-controller="AlunoController" asp-action="ApagarConfirmacao">Apagar</a>
                                         </div>
                                     </td>
                             </tr>
