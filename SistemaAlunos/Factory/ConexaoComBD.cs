@@ -5,7 +5,7 @@ namespace SistemaAlunos.Factory
     public class ConexaoComBD
     {
 
-        private static string _caminho =@"Database=D:\DBESTAGIO.FDB 6; DataSource=localhost;Port=3054;User=SYSDBA; password=masterkey; ";
+        private static string _caminho =@"Database=D:\DBESTAGIO.FDB; DataSource=localhost;Port=3050;User=SYSDBA; password=masterkey; ";
         private static FbConnection conn = null;
 
         //CONECTAR

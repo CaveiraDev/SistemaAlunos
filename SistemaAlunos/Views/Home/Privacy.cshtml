@@ -2,6 +2,44 @@
     ViewData["Title"] = "Cadastro Aluno";
     
 }
-<h1>Cadastro Aluno</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+
+<form asp-controller="AlunoController">
+
+
+    <div class="FormCadastro">
+        <h1 class="display-8">Cadastrar Aluno</h1>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nome</label>
+            <input type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="Digite o nome">
+
+        </div>
+        <div class="form-group">
+            <label for="">CPF</label>
+            <input type="text" class="form-control" id="" placeholder="Digite o CPF">
+        </div>
+        <div class="form-group">
+            <label for="">Nascimento</label>
+            <input type="date" class="form-control" id="" placeholder="DD/MM/YYYY">
+        </div>
+        <div class="form-group ">
+            <label for="sexo">Sexo</label>
+            <select id="sexo" class="form-control" name="sexo">
+                <option value="0">Feminino</option>
+                <option value="1">Masculino</option>
+            </select>
+
+
+        </div>
+        <br />
+        <div class="form-group ">
+            <button type="submit" asp-area="" asp-controller="Home" asp-action="Index" class="btn form-control btn-success ">Cadastrar</button>
+
+            <button type="submit" asp-area="" asp-controller="Home" asp-action="Index" class="btn form-control btn-secondary ">Voltar</button>
+           
+        </div>
+        
+    </div>
+
+    
+</form>

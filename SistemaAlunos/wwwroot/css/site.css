@@ -1,3 +1,17 @@
+
+body {
+    background-color: #dcdddc;
+}
+
+div h1 {
+    color:#16601c;
+    text-align:center;
+    
+    
+}
+
+
+
 html {
   font-size: 14px;
 }
@@ -15,4 +29,15 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.FormCadastro {
+    background-color: #f7f7f7;
+    border: 2px solid mediumseagreen;
+    width: 60%;
+    margin:1px 240px;
+    padding: 6.5%;
+}
+div button{
+    margin-top:5px;
 }

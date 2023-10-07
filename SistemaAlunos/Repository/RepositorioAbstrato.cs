@@ -1,7 +1,7 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
 using SistemaAlunos.Factory;
 using SistemaAlunos.Models.Domain;
-using SistemaAlunos.Models.Enum;
+
 
 namespace SistemaAlunos.Repository
 {
