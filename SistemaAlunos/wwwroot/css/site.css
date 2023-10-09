@@ -30,6 +30,17 @@ html {
 body {
   margin-bottom: 60px;
 }
+table {
+    color: #f7f7f7;
+    margin:0px;
+}
+.tableCostomizacao {
+    
+    border: 2px solid mediumseagreen;
+    padding-bottom:0px;
+    margin:0px;
+    
+}
 
 .FormCadastro {
     background-color: #f7f7f7;

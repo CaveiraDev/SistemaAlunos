@@ -8,13 +8,15 @@
 }
 
 <div class="text-center" >
-    <div>
+    <div >
         <div>
             <h1 class="display-8">Tabela De Alunos</h1>
-        </div>
+        </div> 
 
 
-            <table class="table table-striped">
+
+        <div class="tableCostomizacao">
+            <table id="table-alunos" class=" table table-active table-opacity-70 table-striped-columns">
                 <thead>
                     <tr>
                         <th scope="col">Matricula</th>
@@ -34,22 +36,26 @@
                         {
                             <tr>
                                 <th scope="row">@aluno.Matricula</th>
-                                    <td>@aluno.Nome</td>
-                                    <td>@aluno.CPF</td>
-                                    <td>@aluno.Sexo</td>
-                                    <td>@aluno.Nascimento</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a type="button" class="btn btn-info opacity-75" role="button" asp-route-id="@aluno.Matricula" asp-controller="AlunoController" asp-action="Editar">Editar</a>
-                                        <a type="button" class="btn btn-danger opacity-20" asp-route-id="@aluno.Matricula" asp-controller="AlunoController" asp-action="ApagarConfirmacao">Apagar</a>
-                                        </div>
-                                    </td>
+                                <td>@aluno.Nome</td>
+                                <td>@aluno.CPF</td>
+                                <td>@aluno.Sexo</td>
+                                <td>@aluno.Nascimento</td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a type="button" class="btn btn-success opacity-75" role="button" asp-route-id="@aluno.Matricula" asp-controller="AlunoController" asp-action="Editar">Editar</a>
+                                        <a type="button" class="btn btn-secondary opacity-20" asp-route-id="@aluno.Matricula" asp-controller="AlunoController" asp-action="ApagarConfirmacao">Apagar</a>
+                                    </div>
+                                </td>
                             </tr>
                         }
 
-                   }
+                    }
                 </tbody>
             </table>
+        </div>
+
+
+       
     </div>
     
     

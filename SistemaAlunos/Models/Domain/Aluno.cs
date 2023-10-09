@@ -1,11 +1,16 @@
 ﻿using SistemaAlunos.Models.Enum;
+using System.ComponentModel.DataAnnotations;
 
 namespace SistemaAlunos.Models.Domain
 {
     public class Aluno : IAluno
     {
         public int Matricula { get; set; }
+
+        [Required(ErrorMessage = "Nome Obrigatório")]
         public string Nome { get; set; }
+
+        [Required(ErrorMessage = "CPF Obrigatório")]
         public string CPF { get; set; }
         public DateTime Nascimento { get; set; }
         public EnumeradorSexo Sexo { get; set; }
