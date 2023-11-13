@@ -1,10 +1,13 @@
 ﻿using SistemaAlunos.Models.Enum;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SistemaAlunos.Models.Domain
 {
     public class Aluno : IAluno
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Matricula { get; set; }
 
         [Required(ErrorMessage = "Nome Obrigatório")]

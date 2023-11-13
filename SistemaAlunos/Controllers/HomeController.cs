@@ -33,7 +33,7 @@ namespace SistemaAlunos.Controllers
 
 
                      repositorioAluno.Add(aluno);
-                    TempData["MensagemSucesso"] = "Aluno cadastrado com sucesso!";
+                    
                     return RedirectToAction("Privacy");
                 }
 

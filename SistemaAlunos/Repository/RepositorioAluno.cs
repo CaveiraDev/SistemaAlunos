@@ -21,7 +21,7 @@ namespace SistemaAlunos.Repository
         {
 
 
-            string query = "INSERT INTO ALUNOS( MATRICULA, NOME, CPF, NASCIMENTO, SEXO) VALUES (@ALU_MATRICULA, @ALU_NOME, @ALU_CPF, @ALU_NASCIMENTO, @ALU_SEXO);";
+            string query = "INSERT INTO ALUNOS( ALU_MATRICULA, ALU_NOME, ALU_CPF, ALU_NASCIMENTO, ALU_SEXO) VALUES ((GEN_ID(GEN_ALUNOS, 10)), @ALU_NOME, @ALU_CPF, @ALU_NASCIMENTO, @ALU_SEXO);";
 
             try
             {
@@ -29,7 +29,7 @@ namespace SistemaAlunos.Repository
                 cmd.Parameters.AddWithValue("@ALU_MATRICULA", aluno.Matricula);
                 cmd.Parameters.AddWithValue("@ALU_NOME", aluno.Nome);
                 cmd.Parameters.AddWithValue("@ALU_CPF", aluno.CPF);
-                cmd.Parameters.AddWithValue("@ALU_NASCIMENTO", aluno.Nascimento);
+                cmd.Parameters.AddWithValue("@ALU_NASCIMENTO", aluno.Nascimento.ToString("yyyy/MM/dd"));
                 cmd.Parameters.AddWithValue("@ALU_SEXO", aluno.Sexo);
 
                 cmd.ExecuteNonQuery();
