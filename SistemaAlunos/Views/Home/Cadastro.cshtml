@@ -5,7 +5,7 @@
 }
 
 
-<form asp-controller="Home" asp-action="Privacy" method="post">
+<form asp-controller="Home" asp-action="Cadastro" method="post">
    @if (TempData["MensagemSucesso"] != null)
     {
         <div class="alert alert-success" role="alert">
@@ -50,7 +50,7 @@
         </div>
         <br />
         <div class="form-group ">
-            <button type="submit" asp-area="" asp-controller="Home" asp-action="Privacy" class="btn form-control btn-success ">Cadastrar</button>
+            <button type="submit" asp-area="" asp-controller="Home" asp-action="Cadastro" class="btn form-control btn-success ">Cadastrar</button>
 
             <button type="submit" asp-area="" asp-controller="Home" asp-action="Index" class="btn form-control btn-secondary ">Voltar</button>
            

@@ -14,6 +14,7 @@ namespace SistemaAlunos.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+           
         }
 
         public IActionResult Index()
@@ -22,7 +23,23 @@ namespace SistemaAlunos.Controllers
             return View(aluno);
         }
 
-        public IActionResult Privacy(Aluno aluno)
+        
+        public IActionResult Apagar(int matricula)
+        {
+            repositorioAluno.Remove(matricula);
+            return RedirectToAction("Index");
+        }
+
+        
+        public IActionResult Editar(int matricula)
+        {
+            Aluno aluno = repositorioAluno.Get(matricula).FirstOrDefault();
+
+            return View("Cadastro",aluno);
+        }
+
+  
+        public IActionResult Cadastro(Aluno aluno)
         {
             
             try
@@ -34,7 +51,7 @@ namespace SistemaAlunos.Controllers
 
                      repositorioAluno.Add(aluno);
                     
-                    return RedirectToAction("Privacy");
+                    return RedirectToAction("Cadastro");
                 }
 
                 return View();

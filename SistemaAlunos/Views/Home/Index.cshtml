@@ -3,7 +3,7 @@
 @using SistemaAlunos.Models.Domain;
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Página Inicial";
 
 }
 
@@ -35,15 +35,15 @@
                         foreach (Aluno aluno in Model)
                         {
                             <tr>
-                                <th scope="row">@aluno.Matricula</th>
+                                <td>@aluno.Matricula</td>
                                 <td>@aluno.Nome</td>
                                 <td>@aluno.CPF</td>
                                 <td>@aluno.Sexo</td>
                                 <td>@aluno.Nascimento</td>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a type="button" class="btn btn-success opacity-75" role="button" asp-route-id="@aluno.Matricula" asp-controller="AlunoController" asp-action="Editar">Editar</a>
-                                        <a type="button" class="btn btn-secondary opacity-20" asp-route-id="@aluno.Matricula" asp-controller="AlunoController" asp-action="ApagarConfirmacao">Apagar</a>
+                                        <a type="button" class="btn btn-success opacity-75" role="button" asp-route-id="@aluno.Matricula" asp-controller="Home" asp-action="Editar">Editar</a>
+                                        <a type="button" class="btn btn-secondary opacity-20" asp-route-id="@aluno.Matricula" asp-controller="Home" asp-action="Apagar">Apagar</a>
                                     </div>
                                 </td>
                             </tr>
